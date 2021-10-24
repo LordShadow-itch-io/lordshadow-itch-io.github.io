@@ -17,8 +17,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.logo {
-    width: 120px;
 
 a, a.featured {    
     &:hover {
@@ -86,5 +84,6 @@ h2 {
 }
 
 img.rounded-corners{
-	border-radius: 40px 40px 0 0;
+	border-radius: 30%;
+	width: 120px;
 }
