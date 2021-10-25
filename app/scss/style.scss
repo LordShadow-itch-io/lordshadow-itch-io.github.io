@@ -57,8 +57,20 @@ a {
         }
     }
 }
+#id {
+width:100%;
+    float:left;
+}
+#left{
+width:50%;
+    float:left;
+}
+#right {
+width:50%;
+    float:left;
+}
 
-h2 {
+h1 {
     font-size: 14px;
     text-transform: uppercase;
     font-weight: normal;
