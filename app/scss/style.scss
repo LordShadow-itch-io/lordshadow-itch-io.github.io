@@ -8,9 +8,9 @@ html {
 }
 
 body {
-    background-color: #ff0000 ;
-    color: #ffffff; 
-    min-height: 100vh;
+    height: 15000px;
+	background-color: red; /* For browsers that do not support gradients */
+	background-image: repeating-linear-gradient(#42275c, #6dd5ed 10%, #42275a 30%); 
     text-align: center;
     font-family: 'Timmana', sans-serif;
 }
