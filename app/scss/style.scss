@@ -16,6 +16,15 @@ body {
     font-family: 'Timmana', sans-serif;
 }
 
+chest {
+	background-color: #060042; /* For browsers that do not support gradients */
+	background-image: -webkit-gradient(linear,top,left bottom,color-stop(2%,#060042),co]
+	background-image: linear-gradient(#060042, #6dd5ed 2%, #20A39E 108%);  
+	color: #ffffff;
+    text-align: left;
+    font-family: 'Timmana', sans-serif;
+}
+
 <<<<<<< HEAD
 =======
 .logo {
