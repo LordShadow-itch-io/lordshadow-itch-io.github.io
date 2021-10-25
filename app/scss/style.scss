@@ -32,7 +32,41 @@ chest {
 }
 >>>>>>> parent of d0ecda7 (Update style.scss)
 
+/*a, a.featured {    
+    &:hover {
+        background-color: #060042;
+        color: #ffffff;
+    }
+}
 
+a {
+    display: block;
+    max-width: 400px;
+    margin: 0 auto 15px auto;
+    padding: 15px 20px;
+    font-size: 0.85rem;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    text-decoration: none;
+    transition: all 200ms ease-in-out;
+    
+    &.featured {
+        position: relative;
+        background-color: #ffffff;
+        color: #060042;
+        font-weight: bold;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;            
+            width: calc(100% - 4px);
+            height: calc(100% - 4px);
+            border: 2px solid #060042;
+        }
+    }
+}*/
 
 #id {
 width:100%;
