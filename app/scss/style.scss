@@ -8,9 +8,10 @@ html {
 }
 
 body {
-    height: 15000px;
-	background-color: red; /* For browsers that do not support gradients */
-	background-image: repeating-linear-gradient(#42275c, #6dd5ed 10%, #42275a 30%); 
+	background-color: #060042; /* For browsers that do not support gradients */
+	background-image: -webkit-gradient(linear,top,left bottom,color-stop(2%,#060042),co]
+	background-image: linear-gradient(#060042, #6dd5ed 2%, #20A39E 108%);  
+	color: #ffffff;
     text-align: center;
     font-family: 'Timmana', sans-serif;
 }
