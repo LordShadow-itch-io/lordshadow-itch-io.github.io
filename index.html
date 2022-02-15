@@ -35,6 +35,9 @@
             let h2 = document.createElement('h2');
             h2.textContent = data.name;
             
+            var img = document.createElement('img');
+            img.src = fixURL(data.image);
+            
             let h3 = document.createElement('h3');
             h3.textContent = data.description;
             
