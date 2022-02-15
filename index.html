@@ -20,26 +20,10 @@
         
         console.log(nfts);
         
-        const entries = Object.entries(nfts);
-
-        console.log(entries);
-        
-        entries.forEach(function(nft){
-          let url = fixURL(nft.token_uri);
-          
-          console.log(url);
-        })
+        let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+        console.log(person);
       }
       
-      function fixURL(url) {
-        if(url.startsWith("ipfs")) {
-         return "https://ipfs.moralis.io:2053/ipfs/"+url.split("ipfs://ipfs/").slice(-1)[0]; 
-        }
-        else {
-          return url+"?format=json";
-        }
-      }
-       
       getNFTs();
       
     </script>
