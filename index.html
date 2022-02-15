@@ -18,12 +18,14 @@
         const options = { chain: 'eth', address: '0x69023dddab45f345f2b683c180001d017fc0a540' };
         const nfts = await Moralis.Web3API.account.getNFTs(options);
         
-        //console.log(nfts);
+        console.log(nfts);
         
         //nfts.forEach(function(nft){
         for (const key in nfts) {
-          let url = fixURL(`${nfts[key]}`);
-          
+          if (key == "token_uri") {
+            let url = fixURL(`${nfts[key]}`);
+          }
+            
           fetch(url)
           .then(response => response.json())
           .then(data => {
