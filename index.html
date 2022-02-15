@@ -22,7 +22,7 @@
         
         //nfts.forEach(function(nft){
         for (const key in nfts) {
-          let url = fixURL(${nfts[key]});
+          let url = fixURL(`${nfts[key]}`);
           
           fetch(url)
           .then(response => response.json())
