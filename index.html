@@ -20,8 +20,9 @@
         
         //console.log(nfts);
         
-        nfts.forEach(function(nft){
-          let url = fixUrl(nft.token_uri);
+        //nfts.forEach(function(nft){
+        for (const key in nft) {
+          let url = fixUrl("${nft[key]}");
           
           fetch(url)
           .then(response => response.json())
