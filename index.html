@@ -14,8 +14,8 @@
       Moralis.start({ serverUrl, appId });
       
       async function getNFTs() {
-        const options = { chain: 'eth', address: '0xf56345338cb4cddaf915ebef3bfde63e70fe3053'};
-        const nfts = Moralis.Web3.getNFTs(options);
+        const options = { chain: 'eth', address: '0x0x69023dddab45f345f2b683c180001d017fc0a540' };
+        const nfts = await Moralis.Web3API.account.getNFTs(options);
         
         console.log(nfts);
       }
