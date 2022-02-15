@@ -1,1 +1,27 @@
+<html>
+  <head>
+    <!-- Moralis SDK code -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+  </head>
+  <body>
+    <h1>NFT DEMO</h1>
 
+    <script>
+      
+      const serverUrl = "https://ht1tweosu3li.usemoralis.com:2053/server";
+      const appId = "bIFn85NyDLR5CGfIzPaAqliWSpKwUuTOOEvK1KA6";
+      Moralis.start({ serverUrl, appId });
+      
+      async function getNFTs() {
+        const options = { chain: 'eth', address: '0xf56345338cb4cddaf915ebef3bfde63e70fe3053'};
+        const nfts = Moralis.Web3.getNFTs(options);
+        
+        console.log(nfts);
+      }
+      
+      getNFTs();
+      
+    </script>
+  </body>
+</html>
