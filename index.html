@@ -23,6 +23,32 @@
         const nfts = nftsP["result"];
         console.log(nfts);
         
+        nfts.forEach(function(nft) {
+          let url = fixURL(nft.token_uri);
+          
+          fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            
+            let div = document.createElement('div');
+            
+            let h2 = document.createElement('h2');
+            h2.textContent = data.name;
+            
+            let h3 = document.createElement('h3');
+            h3.textContent = data.description;
+            
+            let hr = document.createElement('hr');
+            
+            div.appendChild(h2);
+            div.appendChild(h3);
+            div.appendChild(hr);
+            
+            document.body.appendChild(div);
+            
+          });
+        })
+        
       }
       
       getNFTs();
