@@ -3,7 +3,8 @@
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <link rel="stylesheet" href="/src/css/styles.css">
   
   </head>
@@ -11,7 +12,7 @@
     <h1>NFT DEMO</h1>
 
     <button onclick="login()">Login With MetaMask</button>
-    <button onclick="getNFTs('0x63478c70b455133c225b7ead5a89593f67dc39dd')">Login With Selected Address</button>
+    <button onclick="getNFTs('0xd4dc24f1ec00090f90ab9aea6c47d6749b5e39bd')">Login With Selected Address</button>
     <hr>
 
     <script>
@@ -56,24 +57,44 @@
         }
         
         nfts.forEach(function(nft) {
-          let url = fixURL(nft.token_uri);
+          /*let url = fixURL(nft.token_uri);
           
-          fetch(url)
+          fetch("https://justcors.com/tl_5eb7e0c/" + url)
+          //ONLY SHOW OF CERTAI COLLENTION NEED TO DO
           .then(response => response.json())
-          .then(data => {
+          .then(data => {*/
+          const metadata = JSON.parse(nft.metadata);
+
+          var input = "PixelBot";
+          if(metadata.name.substring(0, input.length) === input) {
+
+            console.log(metadata);
             
             let div = document.createElement('div');
             
             let h2 = document.createElement('h2');
-            h2.textContent = data.name;
+            h2.textContent = metadata.name;
             
             var img = document.createElement('img');
-            img.src = fixURL(data.image);
+            
+            if (metadata.image != undefined) {
+              img.src = fixURL(metadata.image);
+            }
+            else if (metadata.image_url != undefined) {
+              img.src = fixURL(metadata.image_url);
+            }
+
             img.height = "100";
             img.weight = "100";
             
             let h3 = document.createElement('h3');
-            h3.textContent = data.description;
+            
+            if (metadata.description != null) {
+              h3.textContent = metadata.description;
+            }
+            else {
+              h3.textContent = "No Description";
+            }
             
             let hr = document.createElement('hr');
             
@@ -83,19 +104,19 @@
             div.appendChild(hr);
             
             document.body.appendChild(div);
-            
-          });
+          }
+          // });
         })
         
       }
       
       function fixURL(url) {
-       if(url.startsWith("ipfs")) {
+       /*if(url.startsWith("ipfs")) {
          return "https://ipfs.moralis.io:2053/ipfs/"+url.split("ipfs://ipfs/").slice(-1)[0];
        }
-      else {
+      else {*/
           return url+"?format=json";
-      }
+      // }
       }
       
       //getNFTs();
