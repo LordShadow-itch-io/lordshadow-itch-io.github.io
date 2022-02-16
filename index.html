@@ -5,15 +5,19 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/src/css/styles.css">
   
   </head>
   <body>
     <h1>NFT DEMO</h1>
 
-    <button onclick="login()">Login With MetaMask</button>
-    <button onclick="getNFTs('0xd4dc24f1ec00090f90ab9aea6c47d6749b5e39bd')">Login With Selected Address</button>
+    <button onclick="login()" class="button-19" role="button">Login With MetaMask</button>
+    <button onclick="getNFTs(/*'0x6ab8af4a52d4746a9a53f76483c48888722bbcc0'*/ '0xd4dc24f1ec00090f90ab9aea6c47d6749b5e39bd')" class="button-19" role="button">Login With Selected Address</button>
     <hr>
+
+    <!--<h2 style="text-align: center; color:white; display: none;" class="loaderIndic">LOADING..</h2>-->
+    <div class="loader"></div>
 
     <script>
       
@@ -35,8 +39,24 @@
       
       async function getNFTs(address) {
         //'0x69023dddab45f345f2b683c180001d017fc0a540'
+
+        let isNFTS = false;
+        var i, elements = document.getElementsByClassName('passElement');
+        for (i = elements.length; i--;) {         
+          elements[i].parentNode.removeChild(elements[i]);             
+        }
+
+        var i, elements = document.getElementsByClassName('nftNotFound');
+        for (i = elements.length; i--;) {         
+          elements[i].parentNode.removeChild(elements[i]);             
+        }
+
+        const loader = document.getElementsByClassName("loader")[0];
+
         const options = { chain: 'eth', address: address };
+        loader.style.display = 'block';
         const nftsP = await Moralis.Web3API.account.getNFTs(options);
+        loader.style.display = 'none';
         
         console.log(nftsP);
         
@@ -52,8 +72,14 @@
           h3.className = "nftNotFound";
           h3.textContent = "Maybe try again later"
 
-          document.body.appendChild(h2);
-          document.body.appendChild(h3);
+          let div = document.createElement('div');
+          div.className = "nftNotFound";
+
+          div.appendChild(h2);
+          div.appendChild(h3);
+
+          document.body.appendChild(div);
+          isNFTS = true;
         }
         
         nfts.forEach(function(nft) {
@@ -66,9 +92,10 @@
           const metadata = JSON.parse(nft.metadata);
 
           var input = "PixelBot";
-          if(metadata.name.substring(0, input.length) === input) {
+          if(metadata != null && metadata.name != null && metadata.name.substring(0, input.length) === input) {
 
             console.log(metadata);
+            isNFTS = true;
             
             let div = document.createElement('div');
             
@@ -85,8 +112,7 @@
             }
 
             img.height = "100";
-            img.weight = "100";
-            
+                      
             let h3 = document.createElement('h3');
             
             if (metadata.description != null) {
@@ -97,26 +123,56 @@
             }
             
             let hr = document.createElement('hr');
+
+            let a = document.createElement('a');
+            a.href = "https://google.com";
+
+            h2.className = "passElement";
+            img.className = "passElement";
+            h3.className = "passElement";
+            hr.className = "passElement";
+            a.className = "passElement";
             
             div.appendChild(h2);
             div.appendChild(img);
             div.appendChild(h3);
             div.appendChild(hr);
+            div.appendChild(a);
             
             document.body.appendChild(div);
           }
-          // });
         })
+          
+        if (!isNFTS) {
+          let h2 = document.createElement('h2');
+          h2.className = "nftNotFound";
+          h2.textContent = "You do not own any chain passes";
+
+          let h3 = document.createElement('h3');
+          h3.className = "nftNotFound";
+          h3.textContent = "Visit OpenSea to buy one!";
+
+          let div = document.createElement('div');
+          div.className = "nftNotFound";
+
+          div.appendChild(h2);
+          div.appendChild(h3);
+
+          document.body.appendChild(div);
+        }
         
       }
       
       function fixURL(url) {
-       /*if(url.startsWith("ipfs")) {
+       if(url.startsWith("ipfs://ipfs/")) {
          return "https://ipfs.moralis.io:2053/ipfs/"+url.split("ipfs://ipfs/").slice(-1)[0];
        }
-      else {*/
+       else if(url.startsWith("ipfs://")) {
+          return "https://ipfs.moralis.io:2053/ipfs/"+url.split("ipfs://").slice(-1)[0];
+       }
+      else {
           return url+"?format=json";
-      // }
+       }
       }
       
       //getNFTs();
