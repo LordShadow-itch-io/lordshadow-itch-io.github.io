@@ -14,6 +14,8 @@
 
     <button onclick="login()" class="button-19" role="button">Login With MetaMask</button>
     <button onclick="getNFTs(/*'0x6ab8af4a52d4746a9a53f76483c48888722bbcc0'*/ '0xd4dc24f1ec00090f90ab9aea6c47d6749b5e39bd')" class="button-19" role="button">Login With Selected Address</button>
+    <button class="button-19" role="button">Login With Account</button>
+    
     <hr>
 
     <!--<h2 style="text-align: center; color:white; display: none;" class="loaderIndic">LOADING..</h2>-->
@@ -112,7 +114,11 @@
             }
 
             img.height = "100";
-                      
+
+            let cntuButton = document.createElement('button');
+            let x = document.createTextNode("Select this Pass?");
+            cntuButton.appendChild(x);
+                  
             let h3 = document.createElement('h3');
             
             if (metadata.description != null) {
@@ -129,15 +135,19 @@
 
             h2.className = "passElement";
             img.className = "passElement";
+            cntuButton.className = "passElement cntuButton";
             h3.className = "passElement";
             hr.className = "passElement";
             a.className = "passElement";
             
             div.appendChild(h2);
             div.appendChild(img);
+            div.appendChild(cntuButton);
             div.appendChild(h3);
             div.appendChild(hr);
             div.appendChild(a);
+
+            div.className = "passDiv"
             
             document.body.appendChild(div);
           }

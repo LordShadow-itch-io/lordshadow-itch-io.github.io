@@ -9,8 +9,20 @@ body {
     color: white;
 }
 
+.passDiv {
+    position: relative;
+}
+
 .passElement {
     color: white;
+}
+
+.passElement.cntuButton {
+    position: absolute;
+    right: 5%;
+    top: 40px;
+    width: 150px;
+    height: 75px;
 }
 
 .button-19 {
