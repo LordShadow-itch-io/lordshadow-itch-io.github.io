@@ -4,6 +4,13 @@ body {
     width: 50%;
 }
 
+#title {
+  text-align: center;
+  color: white;
+  font-family: din-round,sans-serif;
+  font-size: 35px;
+}
+
 .nftNotFound {
     text-align: center;
     color: white;
@@ -18,11 +25,27 @@ body {
 }
 
 .passElement.cntuButton {
-    position: absolute;
-    right: 5%;
-    top: 40px;
-    width: 150px;
-    height: 75px;
+  position: absolute;
+  right: 5%;
+  top: 40px;
+  width: 150px;
+  height: 75px;
+  background-color: #1899D6;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  transform: translateZ(0);
+  transition: filter .2s;
 }
 
 .button-19 {
@@ -101,3 +124,41 @@ body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  .loader.center {
+    animation: spin 5s linear infinite;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 25vh;
+    width: 25vh;
+    top: 35vh;
+    margin: auto;
+    position: relative;
+  }
+
+  #tooltip {
+    position: relative;
+    top: 35%;
+    left: 27%;
+    color: white;
+    margin: auto;
+  }
+
+#resetVerif {
+  position: relative;
+  top: 255;
+}
+
+.button-19.cntuVerif {
+  position: absolute;
+  top: 425;
+  width: 50%;
+}
+
+.verifPostText {
+  text-align: center;;
+  color: white;
+  padding: 325px 0;
+}
