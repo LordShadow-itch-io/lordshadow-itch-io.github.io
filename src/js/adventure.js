@@ -14,7 +14,7 @@ async function loadMarket() {
 
     const response = await fetch('https://raw.githubusercontent.com/theChainCom/unitytest/main/adventure/games.json');
     const names = await response.json();
-    const emplys = names.employees;
+    const emplys = names.games["0z1"];
 
     for (let index = 0; index < emplys.length; index++) {
         let div = document.createElement('div');
@@ -51,6 +51,6 @@ async function loadMarket() {
 async function loadNames() {
     const response = await fetch('https://raw.githubusercontent.com/theChainCom/unitytest/main/adventure/games.json');
     const names = await response.json();
-    console.log(names.employees);
-    return names.employees; 
+    console.log(names.games["0z1"]);
+    return names.games["0z1"]; 
   }
