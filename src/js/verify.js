@@ -2,12 +2,10 @@ const serverUrl = "https://ht1tweosu3li.usemoralis.com:2053/server";
 const appId = "bIFn85NyDLR5CGfIzPaAqliWSpKwUuTOOEvK1KA6";
 Moralis.start({ serverUrl, appId });
 
-window.onload = verify("adventure");
-
 async function verify(className) {
     //Logout
 
-    await Moralis.User.logOut();
+    /*await Moralis.User.logOut();
 
     let user = Moralis.User.current();
     
@@ -15,7 +13,7 @@ async function verify(className) {
         user = await Moralis.authenticate({
             signingMessage: "Sign To Verify That You Own A Pass"
         });
-    }
+    } */
 
     const address = /*user.get("ethAddress")*/ '0xd4dc24f1ec00090f90ab9aea6c47d6749b5e39bd';
 
@@ -29,8 +27,16 @@ async function verify(className) {
     nfts.forEach(function(nft) {
 
         const metadata = JSON.parse(nft.metadata);
-    
-        var input = "60143";
+
+        var input = " ";
+
+        if (className == "adventure") {        
+            input = "6014";
+        }
+        else {
+            input = "iswur";
+        }
+
         if(metadata != null && metadata.name != null && metadata.name.indexOf(input) >= 0) {
             console.log("yes");
             isGotPass = true;
@@ -53,6 +59,10 @@ async function verify(className) {
 
         let cntuButton = document.createElement('button');
         let x = document.createTextNode("Continue");
+        cntuButton.onclick = function() {
+            location = "#browse";
+            loadMarket();
+        }
         
         h2.className = "verifPostText";
         cntuButton.className = "button-19 cntuVerif";

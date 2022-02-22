@@ -1,7 +1,12 @@
 body {
     background-color: #0c030e;
     margin: auto;
-    width: 50%;
+    padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 #title {
@@ -141,9 +146,11 @@ body {
   #tooltip {
     position: relative;
     top: 35%;
-    left: 27%;
+    left: 0%;
+    font-size: 2vw;
     color: white;
     margin: auto;
+    text-align: center;
   }
 
 #resetVerif {
@@ -152,13 +159,234 @@ body {
 }
 
 .button-19.cntuVerif {
-  position: absolute;
-  top: 425;
-  width: 50%;
+  position: relative;
+  top: 35vh;
+  width: 100%;
 }
 
 .verifPostText {
-  text-align: center;;
+  position: relative;
+  top: 25vh;
+  text-align: center;
   color: white;
-  padding: 325px 0;
+  /*padding: 325px 0;*/
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
+  width: 100vw;
+}
+
+.nb-title {
+  font-size: 1.5rem;
+  margin: .5rem;
+}
+
+.navbar-links ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: black;
+  padding: 1rem;
+  display: block;
+}
+
+.navbar-links li:hover {
+  background-color: #999;
+}
+
+.toggle-button {
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 31px;
+  height: 21px;
+}
+
+.toggle-button .hbBar {
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+  .toggle-button {
+    display: flex;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .navbar-links li {
+    text-align: center;
+  }
+
+  .navbar-links li a {
+    padding: .5rem 1rem;
+  }
+
+  .navbar-links-active {
+    display: none;
+    width: 100%;
+  }
+}
+
+.sidePanel {
+  position: absolute;
+  display: flex;
+  background-color: red;
+  width: 300px;
+  height: 500px;
+  overflow: hidden hidden;
+}
+
+.sidePanelText {
+  text-align: center;
+  align-items: center;
+}
+
+.sidePanelText.title {
+  position: relative;
+  left: 16.5%;
+  text-decoration: line-through;
+}
+
+.sidePanelElement {
+  position: relative;
+  color: green;
+  margin-left: auto;
+  margin-right: auto;
+  height: 10px;
+  width: auto;
+  right: 32%;
+  top: 50px;
+}
+
+.mainPanel {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  background-color: #0c030e;
+  width: 80.45vw;
+  height: 625px;
+  padding: 10px 7vh 2vw 1vw;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  left: 300px;
+  top: 10px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.mainPanelGameParent {
+  width: 25.5vw;
+  height: 300px;
+  background-color: green;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  overflow: hidden hidden;
+  border-radius: 2.5%;
+}
+
+.mainPanelGameImage {
+  display: block;
+  width: 260px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: none none none solid;
+  border-width: 3px;
+  border-color: blue;
+  border-radius: 5%;
+  padding-bottom: 0%;
+}
+
+.mainPanelText {
+  text-align: left;
+}
+
+.mainPanelText.title {
+  font-size: 1vw;
+}
+
+.mainPanelText.address {
+  font-size: 1vw;
+  text-align: right;
+  position: relative;
+  top: -4vh;
+  padding-right: 1.5vw;
+}
+
+.mainPanelText.desc {
+  position: relative;
+  font-size: 0.95vw;
+  top: -5vh;
+}
+
+@media (max-width: 800px) {
+  .sidePanel {
+    width: 50px;
+  }
+}
+
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}

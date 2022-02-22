@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Vanilla Boilerplate</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/src/css/styles.css">
+  </head>
+  
+  <body>
+
+    <nav class="navbar">
+      <div class="nb-title">The Chained Community</div>
+      <a onclick="toggleTopBar()" class="toggle-button">
+        <span class="hbBar"></span>
+        <span class="hbBar"></span>
+        <span class="hbBar"></span>
+      </a>
+      <div class="navbar-links">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="index.html">Adventure</a></li>
+          <div class="dropdown">
+            <li class="dropbtn">Dropdown</li>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </div>
+          
+        </ul>
+      </div>
+    </nav>
+
+    <button class="button-19" id="resetVerif" onclick="verify('adventure')">RESEnd</button>
+    <div class="loader center" id="verifLoader"></div>
+    <h2 id="tooltip">Accept the sign message to verify!</h2>
+    
+    <script src="/src/js/adventure.js"></script>
+    <script src="/src/js/verify.js"></script>
+    <script src="/src/js/navbar.js"></script>
+    <script> verify("adventure"); </script>
+  </body>
+</html>

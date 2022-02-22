@@ -104,7 +104,12 @@ nfts.forEach(function(nft) {
     let x = document.createTextNode("Select this Pass?");
     cntuButton.appendChild(x);
     cntuButton.addEventListener("click", function(){
-        location = "/pass/adventure.html";
+        if(metadata.name.indexOf("6014") >= 0) {
+            location = "/pass/adventure";
+        }
+        else {
+            location = "/pass/fighting";
+        }
     }); 
             
     let h3 = document.createElement('h3');
