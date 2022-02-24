@@ -2,21 +2,18 @@ async function loadMarket() {
     document.getElementsByClassName('verifPostText')[0].remove();
     document.getElementsByClassName('button-19 cntuVerif')[0].remove();
 
-    let sidePanelParent = document.createElement('div');
-
     let mainPanelParent = document.createElement('div');
 
-    sidePanelParent.className = "sidePanel";
     mainPanelParent.className = "mainPanel";
 
-    document.body.appendChild(sidePanelParent);
     document.body.appendChild(mainPanelParent);
 
     const response = await fetch('https://raw.githubusercontent.com/theChainCom/unitytest/main/adventure/games.json');
     const names = await response.json();
+    console.log((names.games["0"]["0z1"]));
     const emplys = names.games["0z1"];
 
-    for (let index = 0; index < emplys.length; index++) {
+    for (let index = 0; index < names.games.length; index++) {
         let div = document.createElement('div');
         // div.textContent = index.toString();
 
@@ -24,13 +21,13 @@ async function loadMarket() {
         gameImage.src = 'https://www.w3schools.com/html/pic_trulli.jpg';
 
         let gameTitle = document.createElement('h2');
-        gameTitle.textContent = emplys[index].firstName;
+        gameTitle.textContent = Object.values(names.games["0"]["0z1"][0])[0];
 
         let creatorAddress = document.createElement('h2');
-        creatorAddress.textContent = "0xabcdefghijklmnopqrstuvwxyz"
+        creatorAddress.textContent = Object.values(names.games["0"]["0z1"][1])[0];
 
         let desc = document.createElement('h3');
-        desc.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis sem lacus, at lacinia risus imperdiet id. Mauris nunc mauris, hendrerit quis tellus id, interdum scelerisque lacus."
+        desc.textContent = Object.values(names.games["0"]["0z1"][2])[0]
 
         div.className = "mainPanelGameParent";
         gameImage.className = "mainPanelGameImage";
