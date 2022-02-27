@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <link rel="stylesheet" href="/src/css/navbar.css">
+    <link rel="stylesheet" href="/src/css/profile.css">
+    <title>About - The Chained Community</title>
+</head>
+<body>
+    <nav>
+        <div class="navcontainer">
+          <h1>The Chained Community</h1>
+  
+        <div class="menu">
+          <a class="btn btn--stripe" href="/">Home</a>
+          <a class="btn btn--stripe" href="/about/">About</a>
+          <a class="btn btn--stripe" href="#">Game Areas</a>
+          <a class="btn btn--stripe" href="#">Contacts</a>
+        </div>
+  
+        <button class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        </div>
+      </nav>
+
+      <div class="profCont">
+          <div class="banner"></div>
+          <br>
+          <div class="profImg">
+            <img src="https://avatars.dicebear.com/api/identicon/.svg" alt="pfp" id="pfp">
+        </div>
+        <br>
+          <h2 id="oxCode">0xaabbccddeeffgghhiiggkk</h2>
+        <br>
+          <h3 id="profDesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam facere magni debitis ducimus sed nulla assumenda quo laudantium corporis aut doloremque, sint, molestias accusantium alias ab, fugit reiciendis aperiam quas?
+            <!--<button type="button" class="btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-plus"></span>
+              </button>-->
+          </h3>
+      </div>
+
+      <script src="/src/js/profile.js"></script>
+      <script src="/src/js/testUser.js"></script>
+      <script>loadProfile();</script>
+</body>
+</html>

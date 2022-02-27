@@ -261,7 +261,7 @@ main {
   top: 50px;
 }
 
-.mainPanel {
+/*.mainPanel {
   position: relative;
   display: inline-grid;
   grid-template-columns: auto auto auto;

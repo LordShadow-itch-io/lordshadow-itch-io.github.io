@@ -2,6 +2,8 @@ async function loadMarket() {
     document.getElementsByClassName('verifPostText')[0].remove();
     document.getElementsByClassName('button-19 cntuVerif')[0].remove();
 
+    document.getElementById('srchCont').style.display='block';
+
     let mainPanelParent = document.createElement('div');
 
     mainPanelParent.className = "mainPanel";
@@ -13,12 +15,35 @@ async function loadMarket() {
     console.log((names.games["0"]["0z1"]));
     const emplys = names.games["0z1"];
 
+    let gmsCont = document.getElementById('gmsCont');
+
     for (let index = 0; index < names.games.length; index++) {
-        let div = document.createElement('div');
+
+        let divs = document.createElement('div');
+        divs.textContent = Object.values(names.games["0"]["0z1"][0])[0];
+        divs.className = 'gameDiv';
+        
+        let gameImage = document.createElement('img');
+        gameImage.src = Object.values(names.games["0"]["0z1"][3])[0];
+        gameImage.className = "gmsImg";
+
+        let auth = document.createElement('h3');
+        auth.textContent =  Object.values(names.games["0"]["0z1"][1])[0];
+        auth.className = "gmsAuth";
+
+        let desc = document.createElement('p');
+        desc.textContent = Object.values(names.games["0"]["0z1"][2])[0];
+        desc.className = "gmsDesc";
+
+        divs.appendChild(gameImage);
+        divs.appendChild(auth);
+        divs.appendChild(desc);
+
+        gmsCont.appendChild(divs);
+
+        /*let div = document.createElement('div');
         // div.textContent = index.toString();
 
-        let gameImage = document.createElement('img');
-        gameImage.src = 'https://www.w3schools.com/html/pic_trulli.jpg';
 
         let gameTitle = document.createElement('h2');
         gameTitle.textContent = Object.values(names.games["0"]["0z1"][0])[0];
@@ -41,7 +66,7 @@ async function loadMarket() {
         div.appendChild(desc);
 
         mainPanelParent.appendChild(div);
-        console.log("made element");
+        console.log("made element");*/
     }
 }
 
